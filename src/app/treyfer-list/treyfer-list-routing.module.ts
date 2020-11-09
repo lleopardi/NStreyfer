@@ -2,14 +2,12 @@ import { NgModule } from "@angular/core";
 import { Routes } from "@angular/router";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 
-import { SettingsComponent } from "./settings.component";
+import { TreyferListComponent } from "./treyfer-list.component";
 
-const routes: Routes = [
-    { path: "", component: SettingsComponent }
-];
+const routes: Routes = [{ path: "", component: TreyferListComponent }];
 
 @NgModule({
     imports: [NativeScriptRouterModule.forChild(routes)],
     exports: [NativeScriptRouterModule]
 })
-export class SettingsRoutingModule { }
+export class TreyferListRoutingModule {}

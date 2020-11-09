@@ -1,0 +1,4 @@
+<GridLayout columns="*, auto">
+    <Label [text]="item.text" row="0" col="0" textWrap=true class="highlight"></Label>
+    <Label col="1" [text]="isVisible ? '&#xf06e;' : '&#xf070;'" class="nt-icon fas" (tap)="toggle()" col="1"></Label>
+</GridLayout>

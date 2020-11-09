@@ -1,0 +1,46 @@
+<ActionBar>
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()" ios.position="left">
+    </ActionItem>
+    <Label text="Treyfer"></Label>
+</ActionBar>
+
+<GridLayout rows="auto, auto, auto" [formGroup]="formCypher">
+    <GridLayout rows="*, *" row="0" class="m-x-20 m-t-20">
+        <Label class="h1" text="Treyfer Form" row="0"></Label>
+        <Label
+            text="This is a NativeScript form that to keep you encrypt and decrypt a text with a key using Treyfer Algorithm."
+            textWrap=true row="1">
+        </Label>
+    </GridLayout>
+
+    <StackLayout row="1">
+        <StackLayout class="nt-input" row="0">
+            <Label text="Text" class="nt-label font-weight-bold"></Label>
+            <Label text="&#xf05a;" class="nt-icon fas" (tap)="showInfo('text')"></Label>
+            <TextField hint="Enter text to cipher" secure=true class="-border" formControlName="text">
+            </TextField>
+            <Label class="invalid" text="Este campo es requerido" *ngIf="getError('text', 'required')"></Label>
+            <Label class="invalid" text="Longitud mínima es 6 caracteres" *ngIf="getError('text', 'minlength')"></Label>
+            <Label class="invalid" text="Longitud máxima es 12 caracteres"
+                *ngIf="getError('text', 'maxlength')"></Label>
+        </StackLayout>
+
+        <StackLayout class="nt-input" row="1">
+            <Label text="Key" class="nt-label font-weight-bold"></Label>
+            <Label text="&#xf05a;" class="nt-icon fas" (tap)="showInfo('key')"></Label>
+            <TextField hint="Enter key to cipher" secure=true class="-border" formControlName="key" #element>
+            </TextField>
+            <Label class="invalid" text="Este campo es requerido" *ngIf="getError('key', 'required')"></Label>
+            <Label class="invalid" text="Longitud mínima es 8 caracteres" *ngIf="getError('key', 'minlength')"></Label>
+            <Label class="invalid" text="Longitud máxima es 16 caracteres" *ngIf="getError('key', 'maxlength')"></Label>
+        </StackLayout>
+    </StackLayout>
+
+    <FlexboxLayout flexDirection="column" row="2" alignItems="center" class="m-t-20">
+        <Button [text]="isVisible ? 'Clear' : 'Encrypt' " class="-primary p-x-20" [isEnabled]="validForm"
+            (tap)="submit()">
+        </Button>
+    </FlexboxLayout>
+
+</GridLayout>

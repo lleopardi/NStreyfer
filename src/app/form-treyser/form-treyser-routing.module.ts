@@ -2,14 +2,14 @@ import { NgModule } from "@angular/core";
 import { Routes } from "@angular/router";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 
-import { BrowseComponent } from "./browse.component";
+import { FormTreyserComponent } from "./form-treyser.component";
 
 const routes: Routes = [
-    { path: "", component: BrowseComponent }
+    { path: "", component: FormTreyserComponent }
 ];
 
 @NgModule({
     imports: [NativeScriptRouterModule.forChild(routes)],
     exports: [NativeScriptRouterModule]
 })
-export class BrowseRoutingModule { }
+export class FormTreyserRoutingModule { }

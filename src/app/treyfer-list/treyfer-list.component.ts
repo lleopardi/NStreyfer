@@ -1,19 +1,22 @@
 import { Component, OnInit } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
+import { DataCypher, TreyferService } from "../core/treyfer.service";
 
 @Component({
-    selector: "Browse",
-    templateUrl: "./browse.component.html"
+    selector: "List",
+    templateUrl: "./treyfer-list.component.html"
 })
-export class BrowseComponent implements OnInit {
+export class TreyferListComponent implements OnInit {
 
-    constructor() {
+    listItems: Array<DataCypher> = [];
+
+    constructor(private treyferService: TreyferService) {
         // Use the component constructor to inject providers.
     }
 
     ngOnInit(): void {
-        // Init your component properties here.
+        this.listItems = this.treyferService.findAll();
     }
 
     onDrawerButtonTap(): void {

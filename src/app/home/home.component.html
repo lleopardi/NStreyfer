@@ -1,21 +1,39 @@
 <ActionBar>
-    <!-- 
-    Use the NavigationButton as a side-drawer button in Android
-    because ActionItems are shown on the right side of the ActionBar
-    -->
     <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
-    <!-- 
-    Use the ActionItem for IOS with position set to left. Using the
-    NavigationButton as a side-drawer button in iOS is not possible,
-    because its function is to always navigate back in the application.
-    -->
-    <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
-        ios.position="left">
+    <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()" ios.position="left">
     </ActionItem>
-    <Label text="Home"></Label>
+    <Label text="Treyfer"></Label>
 </ActionBar>
 
-<GridLayout class="page__content">
-    <Label class="page__content-icon fas" text="&#xf015;"></Label>
-    <Label class="page__content-placeholder" text="<!-- Page content goes here -->"></Label>
+
+
+<GridLayout rows="auto, auto, auto" class="m-t-20 m-x-20">
+
+    <StackLayout row="0">
+        <Label class="h1" text="What is Treyfer?"></Label>
+        <Label textWrap=true class="m-b-30">
+            <FormattedString>
+                <Span text="In cryptography, Treyfer is a block cipher/MAC designed in 1997 by Gideon Yuval."></Span>
+                <Span text="Aimed at smart card applications" fontWeight="bold"></Span>
+                <Span
+                    text=", the algorithm is extremely simple and compact; it can be implemented in just 29 bytes of 8051 machine code"></Span>
+            </FormattedString>
+        </Label>
+    </StackLayout>
+
+    <FlexboxLayout flexDirection="column" row="1" alignItems="center">
+        <Button text="Go to Trayfer Form" class="-primary m-y-30 p-x-20" [nsRouterLink]="['/form']"></Button>
+    </FlexboxLayout>
+
+    <StackLayout row="2">
+        <Label class="h1 m-t-30" text="References"></Label>
+        <Label text="https://en.wikipedia.org/wiki/Treyfer"></Label>
+        <Label text="https://stackoverflow.com/questions/37303176/encryption-implementationconfusing-results/37333413"
+            textWrap="true">
+        </Label>
+        <Label text="https://github.com/salvadorcoronel" class="pull-right highlight" (tap)="onTapUrl(url.text)"
+            #url></Label>
+    </StackLayout>
+
+
 </GridLayout>
